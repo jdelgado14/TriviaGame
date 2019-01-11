@@ -24,7 +24,7 @@ $(document).ready(function(){
       q7: 'What desert is the largest in the world?',
       q8: 'Which US state is the Grand Canyon located in?',
       q9: 'Which is the largest body of water?',
-      q10: 'What is Earths largest country?',
+      q10: 'What is Earths largest continent?',
     },
     options: {
       q1: ['Killeen,TX', 'Jacksonville,NC', 'Paramount,CA', 'Layton,UT'],
