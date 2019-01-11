@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  
-    // event listeners
     $("#remaining-time").hide();
     $("#start").on('click', trivia.startGame);
     $(document).on('click' , '.option', trivia.guessChecker);
@@ -24,9 +22,9 @@ $(document).ready(function(){
       q5: 'Which is the worlds highest mountain?',
       q6: 'Which is the longest river in the US?',
       q7: 'What desert is the largest in the world?',
-      q8: '',
-      q9: '',
-      q10: '',
+      q8: 'Which US state is the Grand Canyon located in?',
+      q9: 'Which is the largest body of water?',
+      q10: 'What is Earths largest country?',
     },
     options: {
       q1: ['Killeen,TX', 'Jacksonville,NC', 'Paramount,CA', 'Layton,UT'],
@@ -36,9 +34,9 @@ $(document).ready(function(){
       q5: ['Mount Everest', 'Kilimanjaro','Makalu','K2'],
       q6: ['Missouri river','Colorado river','Mississippi river','Yukon river'],
       q7: ['Sonora', 'Kalahari', 'Mojave','Sahara'],
-      q8: [],
-      q9: [],
-      q10: [],
+      q8: ['Arizona','New Mexico','Wyoming','Nevada'],
+      q9: ['Atlantic Ocean','Baltic Sea','Indian Ocean','Pacific Ocean'],
+      q10: ['Europe','Asia','Antartica','Africa'],
 
 
     },
@@ -50,9 +48,9 @@ $(document).ready(function(){
       q5: 'Mount Everest',
       q6: 'Mississippi river',
       q7: 'Sahara',
-      q8: [],
-      q9: [],
-      q10: [],
+      q8: 'Arizona',
+      q9: 'Pacific Ocean',
+      q10: 'Asia'
     },
     //starts game
     startGame: function(){
@@ -68,7 +66,7 @@ $(document).ready(function(){
       // renew results
       $('#results').html('');
       
-      // add value to #timer
+      // add value to the timer
       $('#timer').text(trivia.timer);
       
       // remove start button and show time remaining
@@ -76,19 +74,17 @@ $(document).ready(function(){
   
       $('#remaining-time').show();
       
-      // ask first question
+      // ask question
       trivia.nextQuestion();
       
     },
-    // method to loop through and display questions and options 
     nextQuestion : function(){
       
-      // set timer to 20 seconds each question
       trivia.timer = 12;
        $('#timer').removeClass('last-seconds');
       $('#timer').text(trivia.timer);
       
-      // to prevent timer speed up
+      // keeps timer at same pace
       if(!trivia.timerOn){
         trivia.timerId = setInterval(trivia.timerRunning, 1200);
       }
@@ -106,7 +102,7 @@ $(document).ready(function(){
       })
       
     },
-    // method to decrement counter and count unanswered if timer runs out
+      // decrement counter and count unanswered when timer runs out
     timerRunning : function(){
       // if timer still has time left and there are still questions left to ask
       if(trivia.timer > -1 && trivia.currentSet < Object.keys(trivia.questions).length){
