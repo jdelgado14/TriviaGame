@@ -155,7 +155,7 @@ $(document).ready(function(){
         
         trivia.correct++;
         clearInterval(trivia.timerId);
-        resultId = setTimeout(trivia.guessResult, 1000);
+        resultId = setTimeout(trivia.guessResult, 1200);
         $('#results').html('<h3>Correct Answer!</h3>');
       }
       // else the user picked the wrong option, increment incorrect
@@ -165,7 +165,7 @@ $(document).ready(function(){
         
         trivia.incorrect++;
         clearInterval(trivia.timerId);
-        resultId = setTimeout(trivia.guessResult, 1000);
+        resultId = setTimeout(trivia.guessResult, 1200);
         $('#results').html('<h3>Better luck next time! '+ currentAnswer +'</h3>');
       }
       
